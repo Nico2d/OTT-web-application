@@ -1,12 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { QueryClient, QueryClientProvider } from "react-query";
+import "./App.css";
+import { Login } from "./Components/Login/Login";
+import { SplashScreen } from "./Pages/SpashScreen";
+
+
+const queryClient = new QueryClient()
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <QueryClientProvider client={queryClient}>
+      <div className="App">
+        <header className="App-header">
+          {/* <Login /> */}
+          {/* <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
@@ -17,9 +23,12 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
-        </a>
-      </header>
-    </div>
+        </a> */}
+
+          <SplashScreen />
+        </header>
+      </div>
+    </QueryClientProvider>
   );
 }
 
