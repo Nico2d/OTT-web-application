@@ -1,35 +1,27 @@
-import { QueryClient, QueryClientProvider } from "react-query";
-import "./App.css";
-import { Login } from "./Components/Login/Login";
-import { SplashScreen } from "./Pages/SpashScreen";
-
-
-const queryClient = new QueryClient()
+import styled from "styled-components";
+import { useSignIn } from "./API/Hooks/useSignIn";
+// import "./App.css";
+import { LoginInputs } from "./Components/Login/LoginForm";
+import { Routing } from "./Components/Routing/Routing";
+import { SplashScreen } from "./Pages/SplashScreen";
 
 function App() {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <div className="App">
-        <header className="App-header">
-          {/* <Login /> */}
-          {/* <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a> */}
+  const [User, isLoading, isError] = useSignIn({} as LoginInputs);
 
-          <SplashScreen />
-        </header>
-      </div>
-    </QueryClientProvider>
+  console.log(User, isLoading, isError);
+
+  if (isLoading) return <SplashScreen />;
+  if (isError) return <p>Error.. Spróbuj później</p>;
+
+  return (
+    <Container className="App">
+      <Routing />
+    </Container>
   );
 }
 
 export default App;
+
+const Container = styled.div`
+  /* background: blue; */
+`;

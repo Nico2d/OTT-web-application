@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { LoginForm } from "./LoginForm";
+import { LoginForm } from "../Components/Login/LoginForm";
 
-export const Login = () => {
+export const LoginPage = () => {
   return (
     <Wrapper>
       <h1>Zaloguj się</h1>
