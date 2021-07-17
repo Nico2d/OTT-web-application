@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { StyledButton } from "../Shared/StyledButton";
 import { Input } from "../Shared/Input/Input";
 import { useSignIn } from "../../API/Hooks/useSignIn";
+import { WarningMessage } from "../Shared/Input/Input.styles";
 
 export type LoginInputs = {
   Username: string;
@@ -19,8 +20,6 @@ export const LoginForm = () => {
   } = useForm<LoginInputs>();
 
   const onSubmit: SubmitHandler<LoginInputs> = (data) => {
-    console.log("data:", data);
-
     mutate.mutate(data);
   };
 
@@ -47,6 +46,12 @@ export const LoginForm = () => {
         }}
         error={errors.Password}
       />
+
+      {mutate.isError && (
+        <WarningMessage position="center">
+          {mutate.error?.response.data.Message}
+        </WarningMessage>
+      )}
 
       <StyledButton type="submit">Sign In</StyledButton>
     </StyledForm>

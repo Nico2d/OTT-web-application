@@ -11,6 +11,7 @@ function App() {
 
   useEffect(() => {
     mutate.mutate({} as LoginInputs);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (!mutate.isSuccess || mutate.isLoading) return <SplashScreen />;

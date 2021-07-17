@@ -11,5 +11,7 @@ type SignInRespond = {
 };
 
 export const signIn = async (body: LoginInputs) => {
-  return await axios.post<SignInRespond>("/Authorization/SignIn", { body });
+  const res = await axios.post<SignInRespond>("/Authorization/SignIn", body);
+
+  return res;
 };

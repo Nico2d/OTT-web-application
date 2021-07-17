@@ -1,28 +1,12 @@
-import { FieldError } from "react-hook-form";
-import styled from "styled-components";
-import { StyledInput } from "./Input.style";
-import { StyledLabel } from "./Label.style";
-import { StyledWarningMessage } from "./WarningMessage.style";
-
-type InputProps = {
-  label: string;
-  type: string;
-  register: any;
-  error?: FieldError;
-};
+import * as Styled from "./Input.styles";
+import { InputProps } from "./Input.types";
 
 export const Input = ({ label, type, register, error }: InputProps) => {
   return (
-    <Wrapper>
-      <StyledLabel htmlFor={label}>{label}</StyledLabel>
-      <StyledInput placeholder={label} type={type} {...register} />
-      {error && <StyledWarningMessage>{error.message}</StyledWarningMessage>}
-    </Wrapper>
+    <Styled.FieldWrapper>
+      <Styled.Label htmlFor={label}>{label}</Styled.Label>
+      <Styled.Input placeholder={label} type={type} {...register} />
+      {error && <Styled.WarningMessage>{error.message}</Styled.WarningMessage>}
+    </Styled.FieldWrapper>
   );
 };
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-flow: column;
-  margin-bottom: 2rem;
-`;

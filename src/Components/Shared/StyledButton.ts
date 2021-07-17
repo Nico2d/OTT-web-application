@@ -12,4 +12,5 @@ export const StyledButton = styled.button`
   margin-top: 1rem;
   max-width: 275px;
   width: 100%;
+  cursor: pointer;
 `;
