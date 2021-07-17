@@ -6,7 +6,7 @@ import { Routing } from "./Components/Routing/Routing";
 import { SplashScreen } from "./Pages/SplashScreen";
 
 function App() {
-  const [User, isLoading, isError] = useSignIn({} as LoginInputs);
+  const [, isLoading, isError] = useSignIn({} as LoginInputs);
 
   if (isLoading) return <SplashScreen />;
   if (isError) return <p>Error.. Spróbuj później</p>;

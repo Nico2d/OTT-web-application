@@ -16,5 +16,6 @@ export const myTheme: DefaultTheme = {
     background: "#000000",
     white: "#ffffff",
     black: "#000000",
+    warningRed: "#df0806",
   },
 };
