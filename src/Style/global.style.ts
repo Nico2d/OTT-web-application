@@ -11,6 +11,11 @@ export const GlobalStyle = createGlobalStyle`
         background: ${({ theme }) => theme.colors.background};
         color: ${({ theme }) => theme.colors.fontColor};
         font-size: ${({ theme }) => theme.font.normal};
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+            'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+            sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
     }
     
     a {

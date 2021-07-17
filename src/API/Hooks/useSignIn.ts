@@ -1,5 +1,5 @@
 import { useMutation } from "react-query";
-import { signIn } from "../Endpoints/SignIn";
+import { signIn } from "../Endpoints/signIn/signIn";
 
 export const useSignIn = () => {
   const mutate = useMutation(signIn, {

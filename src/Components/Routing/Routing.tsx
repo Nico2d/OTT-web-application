@@ -1,18 +1,18 @@
 import { Switch, Route } from "react-router-dom";
 import { LoginPage } from "../../Pages/LoginPage";
-import { MainScreen } from "../../Pages/MainScreen";
+import { MainPage } from "../../Pages/MainPage";
 
 export const Routing = () => {
   return (
     <>
       <Switch>
-        <Route path="/" exact component={MainScreen} />
+        <Route path="/" exact component={MainPage} />
       </Switch>
       <Switch>
         <Route path="/login" component={LoginPage} />
       </Switch>
       <Switch>
-        <Route path="/main" component={MainScreen} />
+        <Route path="/main" component={MainPage} />
       </Switch>
     </>
   );
