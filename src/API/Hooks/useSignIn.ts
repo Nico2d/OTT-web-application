@@ -1,15 +1,29 @@
-import { LoginInputs } from "../../Components/Login/LoginForm";
-import { useQuery } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 import { signIn } from "../Endpoints/SignIn";
-import { UserType } from "../../Types/User.type";
 
-export const useSignIn = (body: LoginInputs): [UserType, boolean, boolean] => {
-  const { data, isLoading, isError } = useQuery("user", () => signIn(body));
+export const useSignIn = () => {
+  // const queryClient = useQueryClient();
 
-  const User = data?.data.User ?? ({} as UserType);
-  const Token = data?.data.AuthorizationToken;
+  const mutate = useMutation(signIn, {
+    onSuccess: (data) => {
+      // queryClient.setQueryData("user", data);
 
-  localStorage.setItem("token", Token?.Token ?? "");
+      console.log("[Success]:", data);
+      const Token = data.data.AuthorizationToken; //mutate.data?.data.AuthorizationToken;
 
-  return [User, isLoading, isError];
+      localStorage.setItem("token", Token?.Token ?? "");
+    },
+    onError: () => {
+      alert("there was an error");
+    },
+  });
+
+  // const User = mutate.data?.data.User ?? ({} as UserType);
+  // const Token = mutate.data?.data.AuthorizationToken;
+
+  // localStorage.setItem("token", Token?.Token ?? "");
+
+  console.log("error: ", mutate.error);
+
+  return [mutate];
 };

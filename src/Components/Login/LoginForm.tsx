@@ -2,6 +2,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import styled from "styled-components";
 import { StyledButton } from "../Shared/StyledButton";
 import { Input } from "../Shared/Input/Input";
+import { useSignIn } from "../../API/Hooks/useSignIn";
 
 export type LoginInputs = {
   Username: string;
@@ -9,6 +10,8 @@ export type LoginInputs = {
 };
 
 export const LoginForm = () => {
+  const [mutate] = useSignIn();
+
   const {
     register,
     handleSubmit,
@@ -16,7 +19,9 @@ export const LoginForm = () => {
   } = useForm<LoginInputs>();
 
   const onSubmit: SubmitHandler<LoginInputs> = (data) => {
-    console.log(data);
+    console.log("data:", data);
+
+    mutate.mutate(data);
   };
 
   return (

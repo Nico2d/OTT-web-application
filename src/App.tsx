@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import styled from "styled-components";
 import { useSignIn } from "./API/Hooks/useSignIn";
 import { Header } from "./Components/Header/Header";
@@ -6,11 +7,14 @@ import { Routing } from "./Components/Routing/Routing";
 import { SplashScreen } from "./Pages/SplashScreen";
 
 function App() {
-  const [, isLoading, isError] = useSignIn({} as LoginInputs);
+  const [mutate] = useSignIn();
 
-  if (isLoading) return <SplashScreen />;
-  if (isError) return <p>Error.. Spróbuj później</p>;
+  useEffect(() => {
+    mutate.mutate({} as LoginInputs);
+  }, []);
 
+  if (!mutate.isSuccess || mutate.isLoading) return <SplashScreen />;
+  if (mutate.isError) return <p>Error.. Spróbuj później</p>;
   return (
     <Container>
       <Header />
