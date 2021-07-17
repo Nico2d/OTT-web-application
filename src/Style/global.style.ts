@@ -10,6 +10,7 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0;
         background: ${({ theme }) => theme.colors.background};
         color: ${({ theme }) => theme.colors.fontColor};
+        font-size: ${({ theme }) => theme.font.normal};
     }
     
     a {

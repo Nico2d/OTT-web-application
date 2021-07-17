@@ -12,7 +12,6 @@ export const SplashScreen = () => {
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  background: #282c34;
   height: 100vh;
 
   > img {

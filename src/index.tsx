@@ -7,16 +7,18 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { ThemeProvider } from "styled-components";
 import { myTheme } from "./Style/theme";
 import { GlobalStyle } from "./Style/global.style";
+import { BrowserRouter } from "react-router-dom";
 
 const queryClient = new QueryClient();
 
 ReactDOM.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      {console.log("colors: ", myTheme)}
       <ThemeProvider theme={myTheme}>
-        <GlobalStyle />
-        <App />
+        <BrowserRouter>
+          <GlobalStyle />
+          <App />
+        </BrowserRouter>
       </ThemeProvider>
     </QueryClientProvider>
   </React.StrictMode>,

@@ -1,7 +1,3 @@
 export const MainScreen = () => {
-  return (
-    <>
-      <nav>Login</nav>
-    </>
-  );
+  return <div>Main Screen</div>;
 };

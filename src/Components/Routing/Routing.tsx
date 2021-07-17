@@ -1,10 +1,10 @@
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { LoginPage } from "../../Pages/LoginPage";
 import { MainScreen } from "../../Pages/MainScreen";
 
 export const Routing = () => {
   return (
-    <BrowserRouter>
+    <>
       <Switch>
         <Route path="/" exact component={MainScreen} />
       </Switch>
@@ -14,6 +14,6 @@ export const Routing = () => {
       <Switch>
         <Route path="/main" component={MainScreen} />
       </Switch>
-    </BrowserRouter>
+    </>
   );
 };

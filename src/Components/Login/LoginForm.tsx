@@ -1,48 +1,47 @@
 import { SubmitHandler, useForm } from "react-hook-form";
+import styled from "styled-components";
+import { StyledButton } from "../Shared/StyledButton";
+import { StyledInput } from "../Shared/StyledInput";
+import { StyledLabel } from "../Shared/StyledLabel";
 
 export type LoginInputs = {
   Username: string;
   Password: string;
-  PasswordRepeat: string;
 };
 
 export const LoginForm = () => {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm<LoginInputs>();
+  const { register, handleSubmit } = useForm<LoginInputs>();
 
   const onSubmit: SubmitHandler<LoginInputs> = (data) => {
     console.log(data);
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input
+    <StyledForm onSubmit={handleSubmit(onSubmit)}>
+      <StyledLabel htmlFor="name">Username</StyledLabel>
+      <StyledInput
         placeholder="Username"
         type="text"
         {...register("Username", {
           required: "Please enter your first name.",
         })}
       />
-      <input
+
+      <StyledLabel htmlFor="name">Password</StyledLabel>
+      <StyledInput
         placeholder="Password"
         type="password"
         {...register("Password", {
           required: "Please enter your first name.",
         })}
       />
-      <input
-        placeholder="Repeat password"
-        type="PasswordRepeat"
-        {...register("PasswordRepeat", {
-          required: "Please enter your first name.",
-        })}
-      />
 
-      <button />
-    </form>
+      <StyledButton type="submit">Sign In</StyledButton>
+    </StyledForm>
   );
 };
+
+const StyledForm = styled.form`
+  display: flex;
+  flex-flow: column;
+`;
