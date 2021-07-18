@@ -1,4 +1,4 @@
-import { MediaItem } from "../../../Components/MediaList/MediaListItem/MediaListItem.types";
+import { MediaItemType } from "../../../Components/MediaListItem/MediaListItem.types";
 
 export type fetchMediaListProps = {
   MediaListId: number;
@@ -10,5 +10,5 @@ export type fetchMediaListProps = {
 };
 
 export type fetchMediaListResponse = {
-  Entities: MediaItem[];
+  Entities: MediaItemType[];
 };

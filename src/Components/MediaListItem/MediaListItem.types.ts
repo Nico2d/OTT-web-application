@@ -1,4 +1,4 @@
-export type MediaItem = {
+export type MediaItemType = {
   AvailableFrom: string;
   Description: string;
   Duration: number;
@@ -16,10 +16,10 @@ export type MediaItem = {
 };
 
 export type MediaListItemProps = {
-  mediaItem: MediaItem;
+  mediaItem: MediaItemType;
 };
 
-type MediaItemImage = {
+export type MediaItemImage = {
   Id: number;
   ImageTypeCode: string;
   MediaId: number;

@@ -4,8 +4,8 @@ export const MainPage = () => {
   return (
     <div>
       Main Screen
-      <MediaList id={2} />
-      {/* <MediaList id={3} /> */}
+      <MediaList MediaListId={2} />
+      <MediaList MediaListId={3} />
     </div>
   );
 };
