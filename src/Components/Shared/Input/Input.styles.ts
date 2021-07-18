@@ -18,6 +18,7 @@ export const Label = styled.label`
 export const WarningMessage = styled.p<{ position?: string }>`
   color: ${({ theme }) => theme.colors.warningRed};
   margin: 10px ${({ position }) => (position === "center" ? "auto" : "5px")};
+  text-align: ${({ position }) => (position === "center" ? "center" : "auto")};
 `;
 
 export const FieldWrapper = styled.div`

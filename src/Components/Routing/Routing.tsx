@@ -1,6 +1,7 @@
 import { Switch, Route } from "react-router-dom";
 import { LoginPage } from "../../Pages/LoginPage";
 import { MainPage } from "../../Pages/MainPage";
+import { Player } from "../../Pages/Player";
 
 export const Routing = () => {
   return (
@@ -13,6 +14,9 @@ export const Routing = () => {
       </Switch>
       <Switch>
         <Route path="/main" component={MainPage} />
+      </Switch>
+      <Switch>
+        <Route path="/player/:id/:streamType" component={Player} />
       </Switch>
     </>
   );

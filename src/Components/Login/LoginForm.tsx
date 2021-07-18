@@ -26,10 +26,6 @@ export const LoginForm = () => {
     mutate.mutate(data);
   };
 
-  if (mutate.isSuccess) {
-    history.push("/");
-  }
-
   useEffect(() => {
     if (mutate.isSuccess) {
       history.push("/");
