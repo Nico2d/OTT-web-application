@@ -17,6 +17,7 @@ export type MediaItemType = {
 
 export type MediaListItemProps = {
   mediaItem: MediaItemType;
+  isClickable: boolean;
 };
 
 export type MediaItemImage = {
