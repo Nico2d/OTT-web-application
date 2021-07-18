@@ -7,10 +7,12 @@ import { useHistory } from "react-router-dom";
 import { useEffect } from "react";
 import { StyledForm } from "./LoginForm.styles";
 import { LoginInputs } from "./LoginForm.types";
+import { useUserContext } from "../../Context/UserContext";
 
 export const LoginForm = () => {
   const [mutate] = useSignIn();
   const history = useHistory();
+  const { setUser } = useUserContext();
 
   const {
     register,
@@ -24,9 +26,10 @@ export const LoginForm = () => {
 
   useEffect(() => {
     if (mutate.isSuccess) {
+      setUser(mutate.data!.data.User);
       history.push("/");
     }
-  }, [history, mutate.isSuccess]);
+  }, [history, mutate.data, mutate.isSuccess, setUser]);
 
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)}>

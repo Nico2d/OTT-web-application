@@ -20,7 +20,7 @@ export const Player = () => {
 
   const [data, isLoading, isError] = useMediaPlayInfo(bodyParams);
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <p>Loading...Sprawdzenie uprawnień</p>;
   if (isError)
     return (
       <WarningMessage position="center">

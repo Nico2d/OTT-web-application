@@ -2,13 +2,15 @@ import { MediaItemImage, MediaListItemProps } from "./MediaListItem.types";
 import * as Styles from "./MediaListItem.styles";
 import { useHistory } from "react-router-dom";
 import imageNotFound from "../../Assets/image-not-found.png";
+import { useUserContext } from "../../Context/UserContext";
 
 export const MediaListItem = ({
   mediaItem,
   isClickable,
 }: MediaListItemProps) => {
   const history = useHistory();
-  const isAnon = true;
+  const { user } = useUserContext();
+  const isAnon = user.id === -999;
 
   const getFrameImage = (imagesList: MediaItemImage[]) => {
     const FrameImageVersion = imagesList.find(

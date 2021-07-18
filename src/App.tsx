@@ -1,12 +1,15 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useSignIn } from "./API/Hooks/useSignIn";
 import { Header } from "./Components/Header/Header";
 import { LoginInputs } from "./Components/Login/LoginForm.types";
 import { Routing } from "./Components/Routing/Routing";
+import { UserContext } from "./Context/UserContext";
 import { SplashScreen } from "./Pages/SplashScreen";
+import { UserType } from "./Types/User.type";
 
 function App() {
+  const [user, setUser] = useState<UserType>({} as UserType);
   const [mutate] = useSignIn();
 
   useEffect(() => {
@@ -14,12 +17,22 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    if (mutate.isSuccess) {
+      setUser(mutate.data!.data.User);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mutate.isSuccess]);
+
   if (!mutate.isSuccess || mutate.isLoading) return <SplashScreen />;
   if (mutate.isError) return <p>Error.. Spróbuj później</p>;
+
   return (
     <Container>
-      <Header />
-      <Routing />
+      <UserContext.Provider value={{ user, setUser }}>
+        <Header />
+        <Routing />
+      </UserContext.Provider>
     </Container>
   );
 }
