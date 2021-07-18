@@ -6,5 +6,11 @@ export const Logo = () => {
 };
 
 const StyledLogo = styled.img`
-  margin: 1rem;
+  width: 40px;
+  height: 40px;
+
+  @media (max-width: 768px) {
+    height: 30px;
+    width: 30px;
+  }
 `;

@@ -24,7 +24,8 @@ const StyledNavigation = styled.nav`
   flex-flow: row;
   justify-content: space-between;
   width: 100%;
-  padding: 0.5rem 2rem;
+  padding: 1rem 0;
+  margin-bottom: 3rem;
 `;
 
 const StyledLink = styled(Link)`

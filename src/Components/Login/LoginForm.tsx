@@ -1,16 +1,12 @@
 import { SubmitHandler, useForm } from "react-hook-form";
-import styled from "styled-components";
 import { StyledButton } from "../Shared/StyledButton";
 import { Input } from "../Shared/Input/Input";
 import { useSignIn } from "../../API/Hooks/useSignIn";
 import { WarningMessage } from "../Shared/Input/Input.styles";
 import { useHistory } from "react-router-dom";
 import { useEffect } from "react";
-
-export type LoginInputs = {
-  Username: string;
-  Password: string;
-};
+import { StyledForm } from "./LoginForm.styles";
+import { LoginInputs } from "./LoginForm.types";
 
 export const LoginForm = () => {
   const [mutate] = useSignIn();
@@ -66,8 +62,3 @@ export const LoginForm = () => {
     </StyledForm>
   );
 };
-
-const StyledForm = styled.form`
-  display: flex;
-  flex-flow: column;
-`;

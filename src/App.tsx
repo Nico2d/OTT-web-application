@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import styled from "styled-components";
 import { useSignIn } from "./API/Hooks/useSignIn";
 import { Header } from "./Components/Header/Header";
-import { LoginInputs } from "./Components/Login/LoginForm";
+import { LoginInputs } from "./Components/Login/LoginForm.types";
 import { Routing } from "./Components/Routing/Routing";
 import { SplashScreen } from "./Pages/SplashScreen";
 
@@ -29,4 +29,5 @@ export default App;
 const Container = styled.div`
   max-width: 1440px;
   margin: auto;
+  padding: 0 1rem;
 `;

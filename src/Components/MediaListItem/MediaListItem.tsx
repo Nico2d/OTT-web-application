@@ -1,6 +1,7 @@
 import { MediaItemImage, MediaListItemProps } from "./MediaListItem.types";
 import * as Styles from "./MediaListItem.styles";
 import { useHistory } from "react-router-dom";
+import imageNotFound from "../../Assets/image-not-found.png";
 
 export const MediaListItem = ({
   mediaItem,
@@ -14,12 +15,10 @@ export const MediaListItem = ({
       (imageItem) => imageItem.ImageTypeCode === "FRAME"
     );
 
-    return FrameImageVersion?.Url ?? "";
+    return FrameImageVersion?.Url ?? imageNotFound;
   };
 
   const clickHandler = () => {
-    console.log("CLicked video, open portal???");
-
     history.push(`/player/${mediaItem.Id}/${isAnon ? "trial" : "main"}`);
   };
 

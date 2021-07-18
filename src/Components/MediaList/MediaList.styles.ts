@@ -8,6 +8,8 @@ export const ListWrapper = styled.div`
 `;
 
 export const MediaSlider = styled(Slider)`
+  margin: 1rem 0;
+
   .slick-list {
     margin: 0 -10px;
   }

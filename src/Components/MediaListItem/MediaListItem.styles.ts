@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   padding-top: 56.25%;
   height: 0;
   overflow: hidden;
-  background: gray;
+  background: #242424;
   position: relative;
   border-radius: 10px;
 
@@ -34,4 +34,8 @@ export const Title = styled.p`
   padding-left: 1rem;
   z-index: 3;
   text-shadow: 2px 2px black;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 `;
