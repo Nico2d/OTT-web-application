@@ -5,8 +5,8 @@ import { Header } from "./Components/Header/Header";
 import { LoginInputs } from "./Components/Login/LoginForm.types";
 import { Routing } from "./Components/Routing/Routing";
 import { UserContext } from "./Context/UserContext";
-import { SplashScreen } from "./Pages/SplashScreen";
-import { UserType } from "./Types/User.type";
+import { SplashScreen } from "./Components/SplashScreen/SplashScreen";
+import { UserType } from "./API/Endpoints/signIn/signIn.types";
 
 function App() {
   const [user, setUser] = useState<UserType>({} as UserType);

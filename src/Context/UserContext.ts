@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react";
-import { UserType } from "../Types/User.type";
+import { UserType } from "../API/Endpoints/signIn/signIn.types";
 
 type UserContextTypes = {
   user: UserType;
